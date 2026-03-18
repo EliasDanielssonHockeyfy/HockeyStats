@@ -1,0 +1,60 @@
+name: Claude Code - Implement Issue
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to implement'
+        required: true
+
+jobs:
+  implement:
+    runs-on: ubuntu-latest
+    permissions:
+        contents: write
+        issues: read
+        pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Fetch issue details
+        id: issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/${{ github.repository }}/issues/${{ inputs.issue_number }} \
+            --jq '{title: .title, body: .body}' > issue.json
+      - name: Create branch
+        run: |
+          git checkout -b issue-${{ inputs.issue_number }}-auto
+      - name: Run Claude Code
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          ISSUE_TITLE=$(jq -r '.title' issue.json)
+          ISSUE_BODY=$(jq -r '.body' issue.json)
+          claude -p \
+            "Implement the following GitHub issue in this codebase.
+             Title: $ISSUE_TITLE
+             Description: $ISSUE_BODY
+             Make the necessary changes and commit your work." \
+            --allowedTools "Read,Write,Edit,Bash(git add:*),Bash(git commit:*)" \
+            --max-turns 15 \
+            --dangerously-skip-permissions
+      - name: Push and create PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin issue-${{ inputs.issue_number }}-auto
+          gh pr create \
+            --title "Implement #${{ inputs.issue_number }}" \
+            --body "Automated implementation of #${{ inputs.issue_number }}" \
+            --base main \
+            --head issue-${{ inputs.issue_number }}-auto
