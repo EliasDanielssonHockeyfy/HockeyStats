@@ -30,3 +30,81 @@ button {
     padding: 8px 16px;
     cursor: pointer;
 }
+
+table tbody tr {
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-card {
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 24px 28px;
+    min-width: 320px;
+    max-width: 90%;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #555;
+    margin: 0;
+    padding: 4px 8px;
+}
+
+.modal-header {
+    margin-bottom: 16px;
+}
+
+.modal-header h2 {
+    margin: 0 0 4px;
+    color: #2a4d8f;
+}
+
+.modal-header p {
+    margin: 0;
+    color: #666;
+}
+
+.modal-stats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-stats li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-stats li:last-child {
+    border-bottom: none;
+}
