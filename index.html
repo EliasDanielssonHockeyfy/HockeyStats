@@ -10,9 +10,14 @@
     <h1>HockeyStats</h1>
     <p>Top players this season</p>
 
+    <label class="favorites-filter">
+        <input type="checkbox" id="favorites-only"> Show favorites only
+    </label>
+
     <table>
         <thead>
             <tr>
+                <th></th>
                 <th>Player</th>
                 <th>Team</th>
                 <th>Goals</th>
@@ -22,6 +27,7 @@
         </thead>
         <tbody>
             <tr>
+                <td class="favorite-cell"><button type="button" class="favorite-toggle" aria-label="Toggle favorite">☆</button></td>
                 <td>Alice Karlsson</td>
                 <td>Sundsvall IK</td>
                 <td>12</td>
@@ -29,6 +35,7 @@
                 <td>25</td>
             </tr>
             <tr>
+                <td class="favorite-cell"><button type="button" class="favorite-toggle" aria-label="Toggle favorite">☆</button></td>
                 <td>Bob Eriksson</td>
                 <td>Timra IK</td>
                 <td>9</td>
@@ -36,6 +43,7 @@
                 <td>27</td>
             </tr>
             <tr>
+                <td class="favorite-cell"><button type="button" class="favorite-toggle" aria-label="Toggle favorite">☆</button></td>
                 <td>Clara Nilsson</td>
                 <td>Sundsvall IK</td>
                 <td>14</td>
