@@ -11,3 +11,25 @@ function sortTable() {
 
     rows.forEach(row => table.appendChild(row));
 }
+
+const modal = document.getElementById("player-modal");
+
+function openPlayerModal(row) {
+    document.getElementById("modal-player-name").textContent = row.cells[0].textContent;
+    document.getElementById("modal-player-team").textContent = row.cells[1].textContent;
+    document.getElementById("modal-player-goals").textContent = row.cells[2].textContent;
+    document.getElementById("modal-player-assists").textContent = row.cells[3].textContent;
+    document.getElementById("modal-player-points").textContent = row.cells[4].textContent;
+    modal.classList.remove("hidden");
+}
+
+function closePlayerModal() {
+    modal.classList.add("hidden");
+}
+
+document.querySelectorAll("table tbody tr").forEach(row => {
+    row.addEventListener("click", () => openPlayerModal(row));
+});
+
+modal.querySelector(".modal-close").addEventListener("click", closePlayerModal);
+modal.querySelector(".modal-backdrop").addEventListener("click", closePlayerModal);
