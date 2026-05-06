@@ -47,6 +47,22 @@
 
     <button onclick="sortTable()">Sort by Points</button>
 
+    <div id="player-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-card">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <h2 id="modal-player-name"></h2>
+                <p id="modal-player-team"></p>
+            </div>
+            <ul class="modal-stats">
+                <li>Goals: <span id="modal-player-goals"></span></li>
+                <li>Assists: <span id="modal-player-assists"></span></li>
+                <li>Points: <span id="modal-player-points"></span></li>
+            </ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
