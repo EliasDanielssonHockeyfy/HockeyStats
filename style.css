@@ -16,13 +16,19 @@ table {
 
 th, td {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 12px;
     text-align: left;
+}
+
+td {
+    font-size: 16px;
 }
 
 th {
     background-color: #2a4d8f;
     color: white;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 button {
