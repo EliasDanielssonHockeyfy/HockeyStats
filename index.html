@@ -10,39 +10,14 @@
     <h1>HockeyStats</h1>
     <p>Top players this season</p>
 
+    <div class="view-toggle">
+        <button id="view-players" onclick="setView('players')">Players</button>
+        <button id="view-teams" onclick="setView('teams')">Teams</button>
+    </div>
+
     <table>
-        <thead>
-            <tr>
-                <th>Player</th>
-                <th>Team</th>
-                <th>Goals</th>
-                <th>Assists</th>
-                <th>Points</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Alice Karlsson</td>
-                <td>Sundsvall IK</td>
-                <td>12</td>
-                <td>15</td>
-                <td>25</td>
-            </tr>
-            <tr>
-                <td>Bob Eriksson</td>
-                <td>Timra IK</td>
-                <td>9</td>
-                <td>18</td>
-                <td>27</td>
-            </tr>
-            <tr>
-                <td>Clara Nilsson</td>
-                <td>Sundsvall IK</td>
-                <td>14</td>
-                <td>10</td>
-                <td>22</td>
-            </tr>
-        </tbody>
+        <thead></thead>
+        <tbody></tbody>
     </table>
 
     <button onclick="sortTable()">Sort by Points</button>

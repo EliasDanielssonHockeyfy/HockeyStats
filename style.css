@@ -30,3 +30,12 @@ button {
     padding: 8px 16px;
     cursor: pointer;
 }
+
+.view-toggle {
+    margin-top: 20px;
+}
+
+.view-toggle button.active {
+    background-color: #2a4d8f;
+    color: white;
+}
