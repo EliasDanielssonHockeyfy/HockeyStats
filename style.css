@@ -30,3 +30,29 @@ button {
     padding: 8px 16px;
     cursor: pointer;
 }
+
+.favorites-filter {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.favorite-cell {
+    text-align: center;
+    width: 1%;
+}
+
+.favorite-toggle {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #888;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.favorite-toggle.is-favorite {
+    color: #f5b301;
+}
